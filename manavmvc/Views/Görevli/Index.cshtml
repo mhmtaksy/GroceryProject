@@ -1,0 +1,59 @@
+﻿@model IEnumerable<manavmvc.Models.GörevliModel>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Görevli Listesi</h2>
+
+<p>
+    @Html.ActionLink("Oluştur", "EY",null,new {@class="btn btn-info"})
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.görevliAdi)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.görevliCinsiyet)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.dogumTarihi)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Unvan)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.görevliAdi)
+        </td>
+        <td>
+            @if (item.görevliCinsiyet == true)
+                {
+                    <span>Erkek</span>
+                }
+              else
+                {
+                    <span>Kadın</span>
+                }
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.dogumTarihi)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Unvan)
+        </td>
+        <td>
+            @Html.ActionLink("Güncelle", "EY", new {  id=item.görevliID  },new {@class="btn btn-warning"}) |
+            
+            @Html.ActionLink("Sil", "Delete", new {  id=item.görevliID  }, new { @class = "btn btn-danger" })
+        </td>
+    </tr>
+}
+
+</table>

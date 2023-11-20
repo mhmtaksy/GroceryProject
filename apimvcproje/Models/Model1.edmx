@@ -1,0 +1,172 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="ManavModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Görevli">
+          <Key>
+            <PropertyRef Name="görevliID" />
+          </Key>
+          <Property Name="görevliID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="görevliAdi" Type="varchar" MaxLength="50" />
+          <Property Name="görevliCinsiyet" Type="bit" />
+          <Property Name="dogumTarihi" Type="date" />
+          <Property Name="Unvan" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Manavlar">
+          <Key>
+            <PropertyRef Name="manavID" />
+          </Key>
+          <Property Name="manavID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="manavAdi" Type="varchar" MaxLength="50" />
+          <Property Name="manavAdres" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Meyveler">
+          <Key>
+            <PropertyRef Name="meyveID" />
+          </Key>
+          <Property Name="meyveID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="meyveAdi" Type="varchar" MaxLength="50" />
+          <Property Name="meyveSonKullanma" Type="date" />
+          <Property Name="meyveAdres" Type="varchar" MaxLength="50" />
+          <Property Name="meyveStok" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Sebzeler">
+          <Key>
+            <PropertyRef Name="sebzeID" />
+          </Key>
+          <Property Name="sebzeID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="sebzeAdi" Type="varchar" MaxLength="50" />
+          <Property Name="sebzeSonKullanma" Type="date" />
+          <Property Name="sebzeAdres" Type="varchar" MaxLength="50" />
+          <Property Name="sebzeStok" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityContainer Name="ManavModelStoreContainer">
+          <EntitySet Name="Görevli" EntityType="Self.Görevli" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Manavlar" EntityType="Self.Manavlar" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Meyveler" EntityType="Self.Meyveler" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Sebzeler" EntityType="Self.Sebzeler" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="ManavModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Görevli">
+          <Key>
+            <PropertyRef Name="görevliID" />
+          </Key>
+          <Property Name="görevliID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="görevliAdi" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="görevliCinsiyet" Type="Boolean" />
+          <Property Name="dogumTarihi" Type="DateTime" Precision="0" />
+          <Property Name="Unvan" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Manavlar">
+          <Key>
+            <PropertyRef Name="manavID" />
+          </Key>
+          <Property Name="manavID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="manavAdi" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="manavAdres" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Meyveler">
+          <Key>
+            <PropertyRef Name="meyveID" />
+          </Key>
+          <Property Name="meyveID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="meyveAdi" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="meyveSonKullanma" Type="DateTime" Precision="0" />
+          <Property Name="meyveAdres" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="meyveStok" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Sebzeler">
+          <Key>
+            <PropertyRef Name="sebzeID" />
+          </Key>
+          <Property Name="sebzeID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="sebzeAdi" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="sebzeSonKullanma" Type="DateTime" Precision="0" />
+          <Property Name="sebzeAdres" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="sebzeStok" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityContainer Name="ManavEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Görevli" EntityType="Self.Görevli" />
+          <EntitySet Name="Manavlars" EntityType="Self.Manavlar" />
+          <EntitySet Name="Meyvelers" EntityType="Self.Meyveler" />
+          <EntitySet Name="Sebzelers" EntityType="Self.Sebzeler" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="ManavModelStoreContainer" CdmEntityContainer="ManavEntities">
+          <EntitySetMapping Name="Görevli">
+            <EntityTypeMapping TypeName="ManavModel.Görevli">
+              <MappingFragment StoreEntitySet="Görevli">
+                <ScalarProperty Name="görevliID" ColumnName="görevliID" />
+                <ScalarProperty Name="görevliAdi" ColumnName="görevliAdi" />
+                <ScalarProperty Name="görevliCinsiyet" ColumnName="görevliCinsiyet" />
+                <ScalarProperty Name="dogumTarihi" ColumnName="dogumTarihi" />
+                <ScalarProperty Name="Unvan" ColumnName="Unvan" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Manavlars">
+            <EntityTypeMapping TypeName="ManavModel.Manavlar">
+              <MappingFragment StoreEntitySet="Manavlar">
+                <ScalarProperty Name="manavID" ColumnName="manavID" />
+                <ScalarProperty Name="manavAdi" ColumnName="manavAdi" />
+                <ScalarProperty Name="manavAdres" ColumnName="manavAdres" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Meyvelers">
+            <EntityTypeMapping TypeName="ManavModel.Meyveler">
+              <MappingFragment StoreEntitySet="Meyveler">
+                <ScalarProperty Name="meyveID" ColumnName="meyveID" />
+                <ScalarProperty Name="meyveAdi" ColumnName="meyveAdi" />
+                <ScalarProperty Name="meyveSonKullanma" ColumnName="meyveSonKullanma" />
+                <ScalarProperty Name="meyveAdres" ColumnName="meyveAdres" />
+                <ScalarProperty Name="meyveStok" ColumnName="meyveStok" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Sebzelers">
+            <EntityTypeMapping TypeName="ManavModel.Sebzeler">
+              <MappingFragment StoreEntitySet="Sebzeler">
+                <ScalarProperty Name="sebzeID" ColumnName="sebzeID" />
+                <ScalarProperty Name="sebzeAdi" ColumnName="sebzeAdi" />
+                <ScalarProperty Name="sebzeSonKullanma" ColumnName="sebzeSonKullanma" />
+                <ScalarProperty Name="sebzeAdres" ColumnName="sebzeAdres" />
+                <ScalarProperty Name="sebzeStok" ColumnName="sebzeStok" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

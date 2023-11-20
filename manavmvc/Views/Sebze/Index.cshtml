@@ -1,0 +1,52 @@
+﻿@model IEnumerable<manavmvc.Models.SebzeModel>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Sebze Liste</h2>
+
+<p>
+    @Html.ActionLink("Oluştur", "EY",null,new {@class="btn btn-info"})
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.sebzeAdi)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.sebzeSonKullanma)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.sebzeAdres)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.sebzeStok)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.sebzeAdi)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.sebzeSonKullanma)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.sebzeAdres)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.sebzeStok)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "EY", new {  id=item.sebzeID },new {@class="btn btn-warning"}) |
+            
+            @Html.ActionLink("Delete", "Delete", new {  id=item.sebzeID  }, new { @class = "btn btn-danger" })
+        </td>
+    </tr>
+}
+
+</table>

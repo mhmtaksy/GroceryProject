@@ -1,0 +1,52 @@
+﻿@model IEnumerable<manavmvc.Models.MeyveModel>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Meyve Liste</h2>
+
+<p>
+    @Html.ActionLink("Oluştur", "EY",null,new {@class="btn btn-info"})
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.meyveAdi)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.meyveSonKullanma)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.meyveAdres)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.meyveStok)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.meyveAdi)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.meyveSonKullanma)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.meyveAdres)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.meyveStok)
+        </td>
+        <td>
+            @Html.ActionLink("Güncelle", "EY", new { id=item.meyveID  },new {@class="btn btn-warning"}) |
+            
+            @Html.ActionLink("Sil", "Delete", new { id=item.meyveID }, new { @class = "btn btn-danger" })
+        </td>
+    </tr>
+}
+
+</table>

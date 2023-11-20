@@ -1,0 +1,40 @@
+﻿@model IEnumerable<manavmvc.Models.ManavModel>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Manav Listesi</h2>
+
+<p>
+    @Html.ActionLink("Oluştur", "EY",null, new { @class = "btn btn-info"})
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.manavAdi)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.manavAdres)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.manavAdi)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.manavAdres)
+        </td>
+        <td>
+            @Html.ActionLink("Düzenle", "EY", new {  id=item.manavID },new {@class="btn btn-warning"}) |
+            
+            @Html.ActionLink("Sil", "Delete", new {  id=item.manavID  }, new { @class = "btn btn-danger" })
+        </td>
+    </tr>
+}
+
+</table>
